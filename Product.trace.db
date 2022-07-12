@@ -3555,3 +3555,12 @@ call identity() [90022-214]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2022-07-12 17:59:39 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]PRODUCT_TABLE"; expected "PREPARE"; SQL statement:
+PRODUCT_TABLE [42001-214]
+2022-07-12 18:02:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]javascript:ins('PRODUCT_TABLE',true)"; SQL statement:
+javascript:ins('PRODUCT_TABLE',true) [42000-214]
+2022-07-12 19:27:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CATALOG_TABLE"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+CATALOG_TABLE [42001-214]

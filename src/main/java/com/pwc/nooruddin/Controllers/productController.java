@@ -1,6 +1,5 @@
 package com.pwc.nooruddin.Controllers;
 
-import java.nio.file.FileAlreadyExistsException;
 import java.util.List;
 
 import javax.naming.directory.NoSuchAttributeException;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pwc.nooruddin.CustomExceptions.productNotFoundException;
-import com.pwc.nooruddin.Model.catalog;
+import com.pwc.nooruddin.DAO.productENDModel;
 import com.pwc.nooruddin.Model.product;
 import com.pwc.nooruddin.services.productServices;
 
@@ -30,7 +29,7 @@ public class productController {
 	private productServices services;
 
 	@PostMapping("/EnroleNewProduct")
-	public ResponseEntity<?> AddNewProduct(@RequestBody product product) throws FileAlreadyExistsException{
+	public ResponseEntity<?> AddNewProduct(@RequestBody productENDModel product) throws Exception{
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.createProduct(product));
 	}
 
@@ -40,11 +39,11 @@ public class productController {
 	}
 
 	@PutMapping("/ModifyProduct")
-	public ResponseEntity<catalog> UpdateProduct(@RequestBody product product) throws productNotFoundException{
+	public ResponseEntity<?> UpdateProduct(@RequestBody productENDModel product) throws productNotFoundException{
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.UpdateProduct(product));
 	}
 
-	@DeleteMapping("/DeleteProduct/{productName}")
+	@DeleteMapping("/DeleteProduct/{productName}/{catalogName}")
 	public ResponseEntity<?> DeleteProduct(@PathVariable String productName) throws NoSuchAttributeException{
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.DeleteProduct(productName));
 	}

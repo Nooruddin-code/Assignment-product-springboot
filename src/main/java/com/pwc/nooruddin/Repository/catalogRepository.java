@@ -10,4 +10,5 @@ import com.pwc.nooruddin.Model.catalog;
 public interface catalogRepository extends JpaRepository<catalog, Integer> {
 		Optional<catalog> deleteByCatalogName(String name);
 		Optional<catalog> findByCatalogName(String name);
+		
 }

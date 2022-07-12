@@ -9,4 +9,5 @@ import com.pwc.nooruddin.Model.product;
 @Repository
 public interface productRepository extends JpaRepository<product, Integer> {
 		Optional<product> findByProductName(String productName);
+		Optional<product> deleteByProductName(String name);
 }
